@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Orders - Raisin Bakeshop</title>
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo image">
+      <img src="images/logo new.png" alt="logo">
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="custom.html">Custom Orders</a>
+      <a href="loyalty.html">Loyalty</a>
+      <a href="about.html">About Us</a>
+      <a href="cart.html"><span class="cart">🛒</span></a>
+    </nav>
+  </header>
+
+  <!-- CUSTOM ORDER SECTION -->
+  <section class="custom-section">
+    <div class="section-label">One of a Kind</div>
+    <h1>Design Your Dream Cake</h1>
+    <div class="dreamcake">
+      <img src="images/dreamcake.png" alt="Dream Cake">
+    </div>
+
+    <p>
+      At RAISIN Bakeshop, we believe every celebration deserves a cake as unique as the occasion.
+      Simply fill out the form below with your desired cake name, size, flavor, frosting, and any special requests.
+    </p>
+
+    <div class="custom-box">
+      <form id="customForm">
+
+        <!-- CAKE NAME -->
+        <div class="form-group">
+          <label>Cake Name</label>
+          <input type="text" id="cakeName" placeholder="e.g., Birthday Dream" required>
+        </div>
+
+        <!-- SIZE -->
+        <div class="form-group">
+          <label>Size</label>
+          <select id="sizeSelect" required onchange="calcPrice()">
+            <option value="0">Select Size</option>
+            <option value="5000">6" — Serves 6 (RS 5,000)</option>
+            <option value="5500">8" — Serves 12 (RS 5,500)</option>
+            <option value="10000">10" — Serves 20 (RS 10,000)</option>
+            <option value="27500">12" — Serves 30 (RS 27,500)</option>
+          </select>
+        </div>
+
+        <!-- FLAVOR -->
+        <div class="form-group">
+          <label>Flavor</label>
+          <select id="flavorSelect" required onchange="calcPrice()">
+            <option value="0">Select Flavor</option>
+            <option value="8000">CheeseCake — RS 8,000</option>
+            <option value="6000">Chocolate — RS 6,000</option>
+            <option value="5000">Red Velvet — RS 5,000</option>
+            <option value="5500">Matcha — RS 5,500</option>
+            <option value="5000">Lavender — RS 5,000</option>
+            <option value="7000">Carrot Cake — RS 7,000</option>
+            <option value="4000">Vanilla — RS 4,000</option>
+            <option value="6500">Salted Caramel — RS 6,500</option>
+          </select>
+        </div>
+
+        <!-- FROSTING -->
+        <div class="form-group">
+          <label>Frosting</label>
+          <select id="frostingSelect" required onchange="calcPrice()">
+            <option value="0">Select Frosting</option>
+            <option value="2500">Buttercream — RS 2,500</option>
+            <option value="5000">Cream Cheese — RS 5,000</option>
+            <option value="5000">Chocolate Ganache — RS 5,000</option>
+            <option value="8000">Fondant — RS 8,000</option>
+          </select>
+        </div>
+
+        <!-- SPECIAL REQUESTS -->
+        <div class="form-group">
+          <label>Special Requests</label>
+          <textarea rows="3" placeholder="Allergies, dietary needs, design ideas..."></textarea>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="form-group">
+          <label>Reference Image (Optional)</label>
+          <div class="file-upload">
+            <label for="fileInput" class="file-label">Choose Image</label>
+            <input type="file" id="fileInput" accept="image/*" onchange="updateFileName(this)">
+            <span class="file-name" id="fileName">No file chosen</span>
+          </div>
+        </div>
+
+        <!-- PRICE -->
+        <div class="price-box" id="priceBox">
+          <div class="price-breakdown" id="priceBreakdown">
+            <span>Select options above to see pricing</span>
+          </div>
+          <h3 id="totalPrice">Total: RS —</h3>
+        </div>
+
+        <!-- BUTTON -->
+        <button type="submit" class="btn">✦ Place Custom Order</button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- SUCCESS MESSAGE (hidden) -->
+  <div class="order-success" id="orderSuccess">
+    <div class="success-inner">
+      <div class="success-icon">✦</div>
+      <h3>Order Received!</h3>
+      <p>We'll contact you within 24 hours to confirm your dream cake. Made with love by Mariyam. 💗</p>
+      <button class="btn" onclick="resetForm()">Place Another Order</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><h3>About Us</h3><p>RAISIN Bakeshop brings luxury and elegance to every bite, founded by Mariyam Raisin.</p></div>
+      <div><h3>Quick Links</h3><a href="menu.html">Shop</a><a href="custom.html">Custom Orders</a><a href="loyalty.html">Loyalty</a><a href="about.html">About</a></div>
+      <div><h3>Contact</h3><a href="mailto:hello@raisinbakeshop.com">hello@raisinbakeshop.com</a><a href="tel:+923001234567">+92 300 1234567</a><p>15-S Phase 5 DHA</p></div>
+      <div><h3>Follow Us</h3><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Pinterest</a></div>
+    </div>
+    <p class="copy">© 2026 RAISIN Bakeshop. All rights reserved. Made with 💗 by Mariyam</p>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script>
+    const sizeLabels    = { 5000:'6"', 5500:'8"', 10000:'10"', 27500:'12"' };
+    const flavorLabels  = { 8000:'CheeseCake', 6000:'Chocolate', 5000:'Red Velvet / Lavender', 5500:'Matcha', 7000:'Carrot Cake', 4000:'Vanilla', 6500:'Salted Caramel' };
+    const frostingLabels= { 2500:'Buttercream', 5000:'Cream Cheese / Ganache', 8000:'Fondant' };
+
+    function calcPrice() {
+      const size     = parseInt(document.getElementById('sizeSelect').value)     || 0;
+      const flavor   = parseInt(document.getElementById('flavorSelect').value)   || 0;
+      const frosting = parseInt(document.getElementById('frostingSelect').value) || 0;
+      const total    = size + flavor + frosting;
+
+      const breakdown = document.getElementById('priceBreakdown');
+      const priceEl   = document.getElementById('totalPrice');
+
+      if (total === 0) {
+        breakdown.innerHTML = '<span>Select options above to see pricing</span>';
+        priceEl.textContent = 'Total: RS —';
+        return;
+      }
+
+      let lines = [];
+      if (size)     lines.push(`<span>Size</span><span>RS ${size.toLocaleString()}</span>`);
+      if (flavor)   lines.push(`<span>Flavor</span><span>RS ${flavor.toLocaleString()}</span>`);
+      if (frosting) lines.push(`<span>Frosting</span><span>RS ${frosting.toLocaleString()}</span>`);
+
+      breakdown.innerHTML = lines.map(l => `<div class="breakdown-line">${l}</div>`).join('');
+      priceEl.textContent = `Total: RS ${total.toLocaleString()}`;
+    }
+
+    function updateFileName(input) {
+      document.getElementById('fileName').textContent =
+        input.files.length ? input.files[0].name : 'No file chosen';
+    }
+
+    document.getElementById('customForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('cakeName').value;
+      if (!name) return;
+
+      this.style.display = 'none';
+      document.getElementById('orderSuccess').style.display = 'flex';
+    });
+
+    function resetForm() {
+      document.getElementById('customForm').reset();
+      document.getElementById('customForm').style.display = 'block';
+      document.getElementById('orderSuccess').style.display = 'none';
+      document.getElementById('totalPrice').textContent = 'Total: RS —';
+      document.getElementById('priceBreakdown').innerHTML = '<span>Select options above to see pricing</span>';
+      document.getElementById('fileName').textContent = 'No file chosen';
+    }
+  </script>
+</body>
+</html>

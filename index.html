@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raisin Bakeshop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo image">
+      <img src="images/logo new.png" alt="logo">
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="custom.html">Custom Orders</a>
+      <a href="loyalty.html">Loyalty</a>
+      <a href="about.html">About Us</a>
+      <a href="cart.html"><span class="cart">🛒</span></a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="particles" id="particles"></div>
+    <div class="hero-text">
+      <p class="hero-tag">✦ Handcrafted with Love ✦</p>
+      <h1>Welcome to Raisin —<br>where every bite tells a story.</h1>
+      <p>
+        At our bakery, we blend tradition and creativity to craft freshly baked treats that warm the heart and satisfy the soul.
+        From buttery croissants to rich, raisin-filled loaves, everything is made with love, using the finest ingredients.
+        Whether you're stopping by for your morning pastry or a custom cake, we're here to make every moment a little sweeter.
+      </p>
+      <div class="hero-ctas">
+        <a href="menu.html" class="btn btn-primary">Explore Our Menu</a>
+        <a href="custom.html" class="btn btn-ghost">Custom Orders</a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="signature">
+    <div class="section-label">Our Favorites</div>
+    <h2>Signature Selection</h2>
+    <div class="items">
+
+      <div class="item" data-name="Chocolate Cake" data-price="3250" data-img="images/chocalate cake main.png">
+        <img src="images/chocalate cake main.png" alt="Chocolate Cake">
+        <h3>Chocolate Cake</h3>
+        <p>RS 3250</p>
+        <button onclick="handleAdd(this)">Add to Cart</button>
+      </div>
+
+      <div class="item" data-name="Croissant" data-price="500" data-img="images/croisant main.png">
+        <img src="images/croisant main.png" alt="Croissant">
+        <h3>Croissant</h3>
+        <p>RS 500</p>
+        <button onclick="handleAdd(this)">Add to Cart</button>
+      </div>
+
+      <div class="item" data-name="Raisin Bread" data-price="1250" data-img="images/raisin bread main.png">
+        <img src="images/raisin bread main.png" alt="Raisin Bread">
+        <h3>Raisin Bread</h3>
+        <p>RS 1250</p>
+        <button onclick="handleAdd(this)">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+    <div class="philo-text reveal">
+      <div class="section-label">Our Ethos</div>
+      <h2>Handcrafted<br>with Love</h2>
+      <p>
+        Every creation at RAISIN Bakeshop is a masterpiece. Founded by Mariyam Raisin, we believe in using only the finest ingredients
+        and timeless techniques to create desserts that tell a story of elegance and indulgence.
+      </p>
+      <p>
+        Our commitment to luxury extends beyond taste—it's about creating moments of pure joy and sophistication.
+      </p>
+      <a href="about.html" class="btn btn-outline">Our Story →</a>
+    </div>
+    <div class="philo-img reveal" style="transition-delay:0.2s">
+      <img src="images/raisin shelf.png" alt="Our Philosophy">
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why">
+    <div class="section-label">Why Us</div>
+    <h2>Why Choose Raisin</h2>
+    <div class="boxes">
+      <div class="box reveal">
+        <div class="box-icon">🌱</div>
+        <h4>100% Fresh Ingredients</h4>
+        <p>We use only the freshest, high-quality ingredients in every recipe. No compromises — just pure taste and natural goodness.</p>
+      </div>
+      <div class="box reveal" style="transition-delay:0.1s">
+        <div class="box-icon">💎</div>
+        <h4>Premium Quality</h4>
+        <p>We are committed to using the finest materials and techniques to ensure each product meets our high standards.</p>
+      </div>
+      <div class="box reveal" style="transition-delay:0.2s">
+        <div class="box-icon">🍬</div>
+        <h4>Custom Orders</h4>
+        <p>We offer personalized custom orders to suit your unique preferences and occasions.</p>
+      </div>
+      <div class="box reveal" style="transition-delay:0.3s">
+        <div class="box-icon">💖</div>
+        <h4>Made with Love</h4>
+        <p>Each item is crafted with care and passion, ensuring a delightful experience with every bite.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h3>About Us</h3>
+        <p>RAISIN Bakeshop brings luxury and elegance to every bite, founded by Mariyam Raisin.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <a href="menu.html">Shop</a>
+        <a href="custom.html">Custom Orders</a>
+        <a href="loyalty.html">Loyalty</a>
+        <a href="about.html">About</a>
+        <a href="about.html#contact">Contact</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:hello@raisinbakeshop.com">hello@raisinbakeshop.com</a>
+        <a href="tel:+923001234567">+92 300 1234567</a>
+        <p>15-S Phase 5 DHA</p>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Pinterest</a>
+      </div>
+    </div>
+    <p class="copy">© 2026 RAISIN Bakeshop. All rights reserved. Made with 💗 by Mariyam</p>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script>
+    function handleAdd(btn) {
+      const card  = btn.closest('.item');
+      const name  = card.dataset.name;
+      const price = parseInt(card.dataset.price);
+      const img   = card.dataset.img;
+      Cart.add(name, price, img);
+      btn.classList.add('added');
+      btn.textContent = '✓ Added!';
+      setTimeout(() => {
+        btn.classList.remove('added');
+        btn.textContent = 'Add to Cart';
+      }, 1800);
+    }
+
+    // Floating particles
+    (function() {
+      const c = document.getElementById('particles');
+      const s = ['✦','·','°','✿','·','✦','✦','·','°','✿','·','✦','✿','✦','✦'];
+      for (let i = 0; i < 130; i++) {
+        const p = document.createElement('span');
+        p.className = 'particle';
+        p.textContent = s[Math.floor(Math.random() * s.length)];
+        p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*6}s;animation-duration:${4+Math.random()*5}s;font-size:${8+Math.random()*12}px;opacity:${0.2+Math.random()*0.4};`;
+        c.appendChild(p);
+      }
+    })();
+  </script>
+</body>
+</html>

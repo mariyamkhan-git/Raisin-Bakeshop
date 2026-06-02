@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Raisin Bakeshop</title>
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo image">
+      <img src="images/logo new.png" alt="logo">
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="custom.html">Custom Orders</a>
+      <a href="loyalty.html">Loyalty</a>
+      <a href="about.html">About Us</a>
+      <a href="cart.html"><span class="cart">🛒</span></a>
+    </nav>
+  </header>
+
+  <!-- MENU TITLE -->
+  <section class="menu-top">
+    <h1>Our Selection</h1>
+    <div class="filters">
+      <button data-filter="all" class="active">All Products</button>
+      <button data-filter="cake">Cakes</button>
+      <button data-filter="cookie">Cookies</button>
+      <button data-filter="sundae">Sundaes</button>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+
+    <div class="product" data-category="cake" data-name="Chocolate Cake" data-price="3600" data-img="images/chococake menu.png">
+      <img src="images/chococake menu.png" alt="Chocolate Cake">
+      <h3>Chocolate Cake</h3>
+      <p>Rich chocolate layers with smooth creamy frosting. Perfect for every occasion.</p>
+      <p>RS 3600</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Chocolate Truffle Cake" data-price="3800" data-img="images/Chocolate Truffle Cake.jpg">
+      <img src="images/Chocolate Truffle Cake.jpg" alt="Chocolate Truffle Cake">
+      <h3>Chocolate Truffle Cake</h3>
+      <p>Decadent chocolate cake layered with rich truffle filling. A true indulgence.</p>
+      <p>RS 3800</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Ferrero Cake" data-price="3200" data-img="images/ferrero cake.jpg">
+      <img src="images/ferrero cake.jpg" alt="Ferrero Cake">
+      <h3>Ferrero Cake</h3>
+      <p>Rich Ferrero Rocher layers with creamy hazelnut filling. A delightful treat.</p>
+      <p>RS 3200</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Pistachio Cake" data-price="3500" data-img="images/pistachio cake.jpg">
+      <img src="images/pistachio cake.jpg" alt="Pistachio Cake">
+      <h3>Pistachio Cake</h3>
+      <p>Delicate pistachio layers with a hint of vanilla. A nutty delight.</p>
+      <p>RS 3500</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Pistachio Pecan Cake" data-price="3700" data-img="images/pistachio pecan cake.jpg">
+      <img src="images/pistachio pecan cake.jpg" alt="Pistachio Pecan Cake">
+      <h3>Pistachio Pecan Cake</h3>
+      <p>Delicate pistachio and pecan layers with a hint of vanilla. A nutty delight.</p>
+      <p>RS 3700</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Pistachio Rose Cake" data-price="3200" data-img="images/Pistachio Rose Cake.jpg">
+      <img src="images/Pistachio Rose Cake.jpg" alt="Pistachio Rose Cake">
+      <h3>Pistachio Rose Cake</h3>
+      <p>Delicate pistachio layers with a hint of vanilla and a touch of rose essence. A floral delight.</p>
+      <p>RS 3200</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Raspberry Cheesecake" data-price="3600" data-img="images/rasberry cheesecake.jpg">
+      <img src="images/rasberry cheesecake.jpg" alt="Raspberry Cheesecake">
+      <h3>Raspberry Cheesecake</h3>
+      <p>Smooth cheesecake topped with fresh raspberry compote.</p>
+      <p>RS 3600</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Raspberry Vanilla Bean Cake" data-price="3400" data-img="images/Raspberry Vanilla Bean Cake.jpg">
+      <img src="images/Raspberry Vanilla Bean Cake.jpg" alt="Raspberry Vanilla Bean Cake">
+      <h3>Raspberry Vanilla Bean Cake</h3>
+      <p>Delightful combination of raspberry and vanilla bean flavors in every bite.</p>
+      <p>RS 3400</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Red Velvet Cake" data-price="3600" data-img="images/red velvet cake.jpg">
+      <img src="images/red velvet cake.jpg" alt="Red Velvet Cake">
+      <h3>Red Velvet Cake</h3>
+      <p>Moist red velvet cake with cream cheese frosting. A classic favorite.</p>
+      <p>RS 3600</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Red Velvet Crinkle Cake" data-price="3800" data-img="images/Red Velvet Crinkle Cake.jpg">
+      <img src="images/Red Velvet Crinkle Cake.jpg" alt="Red Velvet Crinkle Cake">
+      <h3>Red Velvet Crinkle Cake</h3>
+      <p>Soft red velvet cake with a crinkled top and cream cheese frosting.</p>
+      <p>RS 3800</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Vanilla Cake" data-price="3200" data-img="images/vanilla cake.jpg">
+      <img src="images/vanilla cake.jpg" alt="Vanilla Cake">
+      <h3>Vanilla Cake</h3>
+      <p>Moist vanilla cake with a hint of vanilla extract. A timeless favorite.</p>
+      <p>RS 3200</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Almond Croissant Cake" data-price="3500" data-img="images/Almond Croissant Cake.jpg">
+      <img src="images/Almond Croissant Cake.jpg" alt="Almond Croissant Cake">
+      <h3>Almond Croissant Cake</h3>
+      <p>Flaky croissant layers filled with rich almond cream and topped with toasted almonds.</p>
+      <p>RS 3500</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cake" data-name="Blueberry Lavender Cheesecake" data-price="3600" data-img="images/Blueberry Lavender Cheesecake.jpg">
+      <img src="images/Blueberry Lavender Cheesecake.jpg" alt="Blueberry Lavender Cheesecake">
+      <h3>Blueberry Lavender Cheesecake</h3>
+      <p>Smooth cheesecake infused with lavender and topped with fresh blueberries.</p>
+      <p>RS 3600</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cookie" data-name="Chocolate Chip Cookie" data-price="400" data-img="images/choco chip cookie.jpg">
+      <img src="images/choco chip cookie.jpg" alt="Chocolate Chip Cookie">
+      <h3>Chocolate Chip Cookie</h3>
+      <p>Classic chocolate chip cookies, chewy and delicious.</p>
+      <p>RS 400</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cookie" data-name="Chocolate Fudge Cookie" data-price="450" data-img="images/choco fudge cookie.jpg">
+      <img src="images/choco fudge cookie.jpg" alt="Chocolate Fudge Cookie">
+      <h3>Chocolate Fudge Cookie</h3>
+      <p>Rich and fudgy chocolate cookies with a gooey center.</p>
+      <p>RS 450</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cookie" data-name="Chocolate Raspberry Cookie" data-price="500" data-img="images/choco rasberry cookie.jpg">
+      <img src="images/choco rasberry cookie.jpg" alt="Chocolate Raspberry Cookie">
+      <h3>Chocolate Raspberry Cookie</h3>
+      <p>Delicious chocolate cookies studded with fresh raspberry pieces.</p>
+      <p>RS 500</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cookie" data-name="Chocolate Rose Cookie" data-price="400" data-img="images/choco rose cookie.jpg">
+      <img src="images/choco rose cookie.jpg" alt="Chocolate Rose Cookie">
+      <h3>Chocolate Rose Cookie</h3>
+      <p>Delicious chocolate cookies infused with rose water and topped with edible flowers.</p>
+      <p>RS 400</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cookie" data-name="Oatmeal Cookie" data-price="350" data-img="images/oatmeal cookie.jpg">
+      <img src="images/oatmeal cookie.jpg" alt="Oatmeal Cookie">
+      <h3>Oatmeal Cookie</h3>
+      <p>Hearty oatmeal cookies packed with raisins and spices.</p>
+      <p>RS 350</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cookie" data-name="Rose Velvet Cookie" data-price="400" data-img="images/rose velevt cookie.jpg">
+      <img src="images/rose velevt cookie.jpg" alt="Rose Velvet Cookie">
+      <h3>Rose Velvet Cookie</h3>
+      <p>Delicious cookies infused with rose water and topped with edible flowers.</p>
+      <p>RS 400</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cookie" data-name="Vanilla Centered Chocolate Cookie" data-price="400" data-img="images/vanilla centered choco cookie.jpg">
+      <img src="images/vanilla centered choco cookie.jpg" alt="Vanilla Centered Chocolate Cookie">
+      <h3>Vanilla Centered Chocolate Cookie</h3>
+      <p>Delicious chocolate cookies with a vanilla center and a hint of vanilla extract.</p>
+      <p>RS 400</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cookie" data-name="Vanilla Floral Cookie" data-price="400" data-img="images/vanilla floral cookie.jpg">
+      <img src="images/vanilla floral cookie.jpg" alt="Vanilla Floral Cookie">
+      <h3>Vanilla Floral Cookie</h3>
+      <p>Delicious cookies infused with vanilla extract and topped with edible flowers.</p>
+      <p>RS 400</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="cookie" data-name="White Chocolate Cookies" data-price="400" data-img="images/white chocolate cookies.jpg">
+      <img src="images/white chocolate cookies.jpg" alt="White Chocolate Cookies">
+      <h3>White Chocolate Cookies</h3>
+      <p>Delicious cookies made with real white chocolate chunks.</p>
+      <p>RS 400</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="sundae" data-name="Chocolate Mouse Sundae" data-price="1200" data-img="images/choco mouse sundae.jpg">
+      <img src="images/choco mouse sundae.jpg" alt="Chocolate Mouse Sundae">
+      <h3>Chocolate Mouse Sundae</h3>
+      <p>Rich chocolate mousse layered with vanilla ice cream and topped with chocolate sauce.</p>
+      <p>RS 1200</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="sundae" data-name="Pistachio Cream Sundae" data-price="1200" data-img="images/pistachio cream sundae.jpg">
+      <img src="images/pistachio cream sundae.jpg" alt="Pistachio Cream Sundae">
+      <h3>Pistachio Cream Sundae</h3>
+      <p>Delicious pistachio cream layered with vanilla ice cream and topped with chopped pistachios.</p>
+      <p>RS 1200</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="sundae" data-name="Raspberry Vanilla Sundae" data-price="1200" data-img="images/rasberry vanilla sundae.jpg">
+      <img src="images/rasberry vanilla sundae.jpg" alt="Raspberry Vanilla Sundae">
+      <h3>Raspberry Vanilla Sundae</h3>
+      <p>Delicious raspberry compote layered with vanilla ice cream and topped with fresh raspberries.</p>
+      <p>RS 1200</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="sundae" data-name="Strawberry Rose Sundae" data-price="1200" data-img="images/strawbeery rose sundae.jpg">
+      <img src="images/strawbeery rose sundae.jpg" alt="Strawberry Rose Sundae">
+      <h3>Strawberry Rose Sundae</h3>
+      <p>Delicious strawberry compote layered with vanilla ice cream and topped with fresh strawberries and edible flowers.</p>
+      <p>RS 1200</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="sundae" data-name="Vanilla Chocolate Sundae" data-price="1200" data-img="images/vanilla choco sundae.jpg">
+      <img src="images/vanilla choco sundae.jpg" alt="Vanilla Chocolate Sundae">
+      <h3>Vanilla Chocolate Sundae</h3>
+      <p>Delicious vanilla ice cream layered with chocolate sauce and topped with chocolate chips.</p>
+      <p>RS 1200</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="sundae" data-name="Walnut Caramel Sundae" data-price="1300" data-img="images/walnut caramel sundae.jpg">
+      <img src="images/walnut caramel sundae.jpg" alt="Walnut Caramel Sundae">
+      <h3>Walnut Caramel Sundae</h3>
+      <p>Delicious walnut caramel sundae layered with vanilla ice cream and topped with chopped walnuts.</p>
+      <p>RS 1300</p>
+      <button onclick="handleAdd(this)">Add to Cart</button>
+    </div>
+
+  </section>
+
+  <!-- VIEW CART -->
+  <div class="view-cart">
+    <a href="cart.html" class="view-cart-btn">🛒 View Cart <span class="cart-float-count" id="cartFloatCount"></span></a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><h3>About Us</h3><p>RAISIN Bakeshop brings luxury and elegance to every bite, founded by Mariyam Raisin.</p></div>
+      <div><h3>Quick Links</h3><a href="menu.html">Shop</a><a href="custom.html">Custom Orders</a><a href="loyalty.html">Loyalty</a><a href="about.html">About</a><a href="about.html#contact">Contact</a></div>
+      <div><h3>Contact</h3><a href="mailto:hello@raisinbakeshop.com">hello@raisinbakeshop.com</a><a href="tel:+923001234567">+92 300 1234567</a><p>15-S Phase 5 DHA</p></div>
+      <div><h3>Follow Us</h3><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Pinterest</a></div>
+    </div>
+    <p class="copy">© 2026 RAISIN Bakeshop. All rights reserved. Made with 💗 by Mariyam</p>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script>
+    function handleAdd(btn) {
+      const card  = btn.closest('.product');
+      const name  = card.dataset.name;
+      const price = parseInt(card.dataset.price);
+      const img   = card.dataset.img;
+
+      Cart.add(name, price, img);
+      updateFloatCount();
+
+      btn.classList.add('added');
+      btn.textContent = '✓ Added!';
+      setTimeout(() => {
+        btn.classList.remove('added');
+        btn.textContent = 'Add to Cart';
+      }, 1800);
+    }
+
+    function updateFloatCount() {
+      const count = Cart.count();
+      const el = document.getElementById('cartFloatCount');
+      el.textContent = count > 0 ? count : '';
+      el.style.display = count > 0 ? 'inline-flex' : 'none';
+    }
+
+    // Filter buttons
+    document.querySelectorAll('.filters button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.product').forEach(p => {
+          p.style.display = (filter === 'all' || p.dataset.category === filter) ? 'block' : 'none';
+        });
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', updateFloatCount);
+  </script>
+</body>
+</html>

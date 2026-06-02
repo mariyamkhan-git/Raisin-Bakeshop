@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Raisin Bakeshop</title>
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo image">
+    <img src="images/logo new.png" alt="logo">
+  </div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="custom.html">Custom Orders</a>
+    <a href="loyalty.html">Loyalty</a>
+    <a href="about.html">About Us</a>
+    <a href="cart.html"><span class="cart">🛒</span></a>
+  </nav>
+</header>
+
+<!-- CART SECTION -->
+<section class="cart-section">
+  <h1>Shopping Cart</h1>
+
+  <div class="cart-container" id="cartContainer">
+
+    <!-- LEFT SIDE -->
+    <div class="cart-left" id="cartLeft">
+      <!-- Rendered by JS -->
+    </div>
+
+    <!-- RIGHT SIDE (SUMMARY) -->
+    <div class="cart-right">
+      <div class="summary-box" id="summaryBox">
+        <h3>Order Summary</h3>
+
+        <div class="summary-line">
+          <span>Subtotal:</span>
+          <span id="summarySubtotal">RS 0</span>
+        </div>
+        <div class="summary-line" id="discountLine" style="display:none">
+          <span>Loyalty Discount:</span>
+          <span id="summaryDiscount" style="color:#27ae60">-RS 0</span>
+        </div>
+        <div class="summary-line">
+          <span>Tax (10%):</span>
+          <span id="summaryTax">RS 0</span>
+        </div>
+        <hr>
+        <div class="summary-total">
+          <span>Total:</span>
+          <span id="summaryTotal">RS 0</span>
+        </div>
+
+        <button class="btn checkout-btn" id="checkoutBtn" onclick="handleCheckout()" disabled>
+          Proceed to Checkout
+        </button>
+
+        <a href="menu.html" class="continue-link">← Continue Shopping</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+<div class="modal" id="checkoutModal">
+  <div class="modal-icon">🎉</div>
+  <h2>Order Placed!</h2>
+  <p>Thank you for your order. Mariyam and the team will have your treats ready with love. ✦</p>
+  <div class="modal-summary" id="modalSummary"></div>
+  <button class="btn" onclick="confirmOrder()">Done — Back to Menu</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div><h3>About Us</h3><p>RAISIN Bakeshop brings luxury and elegance to every bite, founded by Mariyam Raisin.</p></div>
+    <div><h3>Quick Links</h3><a href="menu.html">Shop</a><a href="custom.html">Custom Orders</a><a href="loyalty.html">Loyalty</a><a href="about.html">About</a></div>
+    <div><h3>Contact</h3><a href="mailto:hello@raisinbakeshop.com">hello@raisinbakeshop.com</a><a href="tel:+923001234567">+92 300 1234567</a><p>15-S Phase 5 DHA</p></div>
+    <div><h3>Follow Us</h3><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Pinterest</a></div>
+  </div>
+  <p class="copy">© 2026 RAISIN Bakeshop. All rights reserved. Made with 💗 by Mariyam</p>
+</footer>
+
+<script src="js/cart.js"></script>
+<script>
+  const TAX_RATE = 0.10;
+
+  function fmt(n) {
+    return 'RS ' + n.toLocaleString();
+  }
+
+  function renderCart() {
+    const items = Cart.get();
+    const left  = document.getElementById('cartLeft');
+
+    if (items.length === 0) {
+      left.innerHTML = `
+        <div class="cart-empty">
+          <div class="empty-icon">🛒</div>
+          <h3>Your cart is empty</h3>
+          <p>Start adding delicious treats from our menu!</p>
+          <a href="menu.html" class="btn">Explore Menu</a>
+        </div>
+      `;
+      updateSummary(0);
+      document.getElementById('checkoutBtn').disabled = true;
+      return;
+    }
+
+    document.getElementById('checkoutBtn').disabled = false;
+
+    left.innerHTML = `
+      <div class="cart-items">
+        ${items.map((item, i) => `
+          <div class="cart-item" style="animation-delay:${i * 0.07}s">
+            <div class="cart-item-img">
+              ${item.img
+                ? `<img src="${item.img}" alt="${item.name}">`
+                : `<div class="img-placeholder">🍰</div>`}
+            </div>
+            <div class="cart-item-info">
+              <h4>${item.name}</h4>
+              <p class="item-unit-price">${fmt(item.price)} each</p>
+            </div>
+            <div class="cart-item-controls">
+              <button class="qty-btn" onclick="changeQty('${item.name.replace(/'/g,"\\'")}', -1)">−</button>
+              <span class="qty-num">${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty('${item.name.replace(/'/g,"\\'")}', 1)">+</button>
+            </div>
+            <div class="cart-item-total">
+              <span>${fmt(item.price * item.qty)}</span>
+            </div>
+            <button class="remove-btn" title="Remove" onclick="removeItem('${item.name.replace(/'/g,"\\'")}')">✕</button>
+          </div>
+        `).join('')}
+        <button class="clear-btn" onclick="clearAll()">🗑 Clear Cart</button>
+      </div>
+    `;
+
+    const subtotal = Cart.total();
+    updateSummary(subtotal);
+  }
+
+  function updateSummary(subtotal) {
+    const tax   = Math.round(subtotal * TAX_RATE);
+    const total = subtotal + tax;
+
+    document.getElementById('summarySubtotal').textContent = fmt(subtotal);
+    document.getElementById('summaryTax').textContent      = fmt(tax);
+    document.getElementById('summaryTotal').textContent    = fmt(total);
+  }
+
+  function changeQty(name, delta) {
+    Cart.updateQty(name, delta);
+    renderCart();
+  }
+
+  function removeItem(name) {
+    const el = event.target.closest('.cart-item');
+    el.style.transform = 'translateX(60px)';
+    el.style.opacity   = '0';
+    setTimeout(() => {
+      Cart.remove(name);
+      renderCart();
+    }, 300);
+  }
+
+  function clearAll() {
+    Cart.clear();
+    renderCart();
+  }
+
+  function handleCheckout() {
+    const items = Cart.get();
+    if (!items.length) return;
+    const subtotal = Cart.total();
+    const tax   = Math.round(subtotal * TAX_RATE);
+    const total = subtotal + tax;
+
+    document.getElementById('modalSummary').innerHTML = `
+      <div class="modal-summary-line"><span>${items.length} item${items.length > 1 ? 's' : ''}</span><span>${fmt(subtotal)}</span></div>
+      <div class="modal-summary-line"><span>Tax</span><span>${fmt(tax)}</span></div>
+      <div class="modal-summary-line total"><span>Total</span><span>${fmt(total)}</span></div>
+    `;
+
+    document.getElementById('modalOverlay').classList.add('active');
+    document.getElementById('checkoutModal').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.getElementById('checkoutModal').classList.remove('active');
+  }
+
+  function confirmOrder() {
+    Cart.clear();
+    closeModal();
+    window.location.href = 'menu.html';
+  }
+
+  document.addEventListener('DOMContentLoaded', renderCart);
+</script>
+</body>
+</html>
